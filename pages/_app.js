@@ -10,6 +10,7 @@ import useJssStyles from 'react-storefront/hooks/useJssStyles'
 import SessionProvider from 'react-storefront/session/SessionProvider'
 import useAppStore from 'react-storefront/hooks/useAppStore'
 
+import { HomeContextProvider } from "../context/home-context.js"
 import { CounterContextProvider } from "../context/counter-context.js"
 
 const styles = theme => ({
@@ -18,8 +19,7 @@ const styles = theme => ({
   },
 })
 
-const useStyles = makeStyles(styles)
-const NameContext = React.createContext("bryan")
+const useStyles = makeStyles(styles);
 
 export default function MyApp({ Component, pageProps }) {
   useJssStyles()
@@ -30,16 +30,16 @@ export default function MyApp({ Component, pageProps }) {
     <PWA errorReporter={reportError}>
       <SessionProvider url="/api/session">
         <MuiThemeProvider theme={theme}>
-          <NameContext.Provider value="James">
             <CssBaseline />
             <Header menu={appData && appData.menu} />
             <NavBar tabs={appData && appData.tabs} />
-            <CounterContextProvider>
-              <main className={classes.main}>
-                <Component {...pageProps} />
-              </main>
-            </CounterContextProvider>
-          </NameContext.Provider>
+            <HomeContextProvider>
+              <CounterContextProvider>
+                <main className={classes.main}>
+                  <Component {...pageProps} />
+                </main>
+              </CounterContextProvider>
+            </HomeContextProvider>
         </MuiThemeProvider>
       </SessionProvider>
     </PWA>

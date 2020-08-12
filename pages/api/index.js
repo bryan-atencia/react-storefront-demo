@@ -1,9 +1,9 @@
+import React, { useContext } from "react"
 import { home } from 'react-storefront-connector'
 
 export default async function(req, res) {
 
   const contentful = require('contentful')
-
   const client = contentful.createClient({
     space: '8x9h02x0glox',
     environment: 'master',
@@ -11,6 +11,6 @@ export default async function(req, res) {
   })
 
   let fetcher = await client.getEntries({ include: 2, 'sys.id':'4rKXzT1mPqbTS9GvOwKpVu' })
-  // return res.json(await home(req, res));
+
   return res.json(fetcher.items[0].fields)
 }

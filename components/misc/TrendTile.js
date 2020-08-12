@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Grid, Typography } from "@material-ui/core"
 import Link from 'next/link'
 
 import { makeStyles } from '@material-ui/core/styles'
+import { HomeContext } from "../../context/home-context"
 // import QuickShopTag from "./QuickShopTag"
 
 const useStyles = makeStyles(theme => ({
@@ -30,6 +31,18 @@ export default (props) => {
         const { data } = props
         const classes = useStyles(props)
 
+        let [ state, dispatch ] = useContext(HomeContext)
+
+        let { celebritybanners } = state
+
+        let celebtext = () => {
+          if( celebritybanners && celebritybanners.length ) {
+            return celebritybanners[0].fields.actiontext
+          }
+          return 'none'
+        }
+
+        console.log(celebtext())
         return <>
                   <Grid  style={{ width: "100%"}}>
                         <img
@@ -46,8 +59,9 @@ export default (props) => {
                                                                   label={x.actionSku}
                                                                   />) */}
                   </Grid>
-                     {data.header_level_one && data.header_level_one !== '' && (
-                       <Typography align="center" variant="h5" className={`${classes.bannersDescription} bannerDescription`} >{data.header_level_one}</Typography>
+                     { celebtext && celebtext !== '' && <Typography align="center" variant="h5" className={`${classes.bannersDescription} bannerDescription`} >{ celebtext() }</Typography> }
+                     {data.headerLevelOne && data.headerLevelOne !== '' && (
+                       <Typography align="center" variant="h5" className={`${classes.bannersDescription} bannerDescription`} >{data.headerLevelOne}</Typography>
                      )}
                      {data.actiontext && data.actiontext !== '' && (
                        <div style={{ "padding": "3px 0px 40px 0px", margin:"0 auto" }} className="trendTileActionTextGrid">

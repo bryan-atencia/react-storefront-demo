@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Container, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import useLazyState from 'react-storefront/hooks/useLazyState'
@@ -18,6 +18,7 @@ import CelebrityBanner from "../components/home/CelebrityBanner"
 
 import { Grid } from '@material-ui/core'
 import { CounterContext } from "../context/counter-context"
+import { HomeContext } from "../context/home-context"
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -43,9 +44,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function Index(lazyProps) {
   const classes = useStyles()
-  const [state] = useLazyState(lazyProps)
+  // const [state] = useLazyState(lazyProps)
 
-  // console.log('props', useLazyState(lazyProps))
   const { homebanner,
           trendbanners,
           videobanner,
@@ -56,6 +56,16 @@ export default function Index(lazyProps) {
   } = useLazyState(lazyProps)[0]
 
   const [ count, setCount ] = useContext(CounterContext)
+  const [ state, dispatch ] = useContext(HomeContext)
+
+  let data = useLazyState(lazyProps)
+
+  useEffect(() => {
+    dispatch({
+      type:"create",
+      payload: lazyProps
+    })
+  }, [])
 
   const increment = () => {
     setCount( count + 1 )
@@ -89,5 +99,6 @@ export default function Index(lazyProps) {
 Index.getInitialProps = createLazyProps(options => {
   const { res } = options
   if (res) res.setHeader('Cache-Control', 'max-age=99999');
+
   return fetchFromAPI(options)
 })

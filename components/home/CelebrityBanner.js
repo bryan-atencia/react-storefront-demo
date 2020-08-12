@@ -101,7 +101,7 @@ export default (props) => {
                         >
                           <Typography align="right" variant="h4">
                             {' '}
-                            {x.fields.header_level_one}{' '}
+                            {x.fields.headerLevelOne}{' '}
                           </Typography>
                           <Typography
                             align="right"
@@ -109,7 +109,7 @@ export default (props) => {
                             className={classes.homePageCelebrityHeaderLevelTwo}
                           >
                             {' '}
-                            {x.fields.header_level_two}{' '}
+                            {x.fields.headerLevelTwo}{' '}
                           </Typography>
                             <Typography
                               align="right"
@@ -132,7 +132,7 @@ export default (props) => {
                             >
                               <Typography align="center" variant="h4">
                                 {' '}
-                                {x.fields.header_level_one}{' '}
+                                {x.fields.headerLevelOne}{' '}
                               </Typography>
                               <Typography
                                 align="center"
@@ -140,7 +140,7 @@ export default (props) => {
                                 className={classes.homePageCelebrityHeaderLevelTwo}
                               >
                                 {' '}
-                                {x.fields.header_level_two}{' '}
+                                {x.fields.headerLevelTwo}{' '}
                               </Typography>
                                 <Typography
                                   align="center"

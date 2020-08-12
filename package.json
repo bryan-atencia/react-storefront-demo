@@ -47,6 +47,7 @@
     "preact-ssr-prepass": "^1.0.0",
     "qs": "^6.9.0",
     "react": "^16.12.0",
+    "react-async-hook": "^3.6.1",
     "react-dom": "^16.12.0",
     "react-storefront": "^8.11.0",
     "react-visibility-sensor": "^5.1.1",
