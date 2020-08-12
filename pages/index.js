@@ -8,7 +8,15 @@ import Head from 'next/head'
 import createLazyProps from 'react-storefront/props/createLazyProps'
 import fetchFromAPI from 'react-storefront/props/fetchFromAPI'
 
-import Header from "../components/home/Header.js"
+import Header from "../components/home/Header"
+import Divider from "../components/home/Divider"
+import TrendBanners from "../components/home/TrendBanners"
+import VideoBanner from "../components/home/VideoBanner"
+import OptionsBanner from "../components/home/OptionsBanner"
+import CelebrityBannerHeader from "../components/home/CelebrityBannerHeader"
+import CelebrityBanner from "../components/home/CelebrityBanner"
+
+import { Grid } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -18,17 +26,49 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     margin: theme.spacing(10, 0, 0, 0),
   },
+  homePage: {
+    margin: '0 auto',
+    overflow: 'hidden'
+  },
+  homePageMainBodyGrid: {
+    padding: '0 40px',
+    maxWidth: '1180px',
+    margin:"0 auto",
+    [theme.breakpoints.down('sm')]: {
+      padding: '0'
+    }
+  }
 }))
 
 export default function Index(lazyProps) {
   const classes = useStyles()
   const [state] = useLazyState(lazyProps)
 
-  console.log('props', useLazyState(lazyProps))
-  const { homebanner } = useLazyState(lazyProps)[0]
+  // console.log('props', useLazyState(lazyProps))
+  const { homebanner,
+          trendbanners,
+          videobanner,
+          optionbanners,
+          options,
+          celebritybanners,
+          mediabanners
+  } = useLazyState(lazyProps)[0]
 
   return <div>
           <Header data={ homebanner } />
+          <Divider margin="50" />
+          <Grid className={classes.homePageMainBodyGrid}>
+            <TrendBanners data={trendbanners}  classData={classes} />
+            <Divider margin="50" />
+            <VideoBanner data={videobanner} classData={classes} />
+            <Divider margin="50" />
+            <OptionsBanner data={optionbanners} classData={classes} />
+            <Divider margin="50" />
+            <CelebrityBannerHeader classData={classes} />
+            <Divider margin="23" />
+            <CelebrityBanner data={celebritybanners} classData={classes} />
+            <Divider margin="67" />
+          </Grid>
          </div>
 }
 

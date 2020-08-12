@@ -1,5 +1,7 @@
 import React from 'react'
-import { makeStyles, Grid, Paper } from '@material-ui/core'
+import { Grid, Paper } from '@material-ui/core'
+
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   homePageOptionsBannerGrid: {
@@ -36,29 +38,29 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 export default (props) => {
-    const { data, classData } = props
-    const classes = useStyles(props)
+  const { data, classData } = props
+  const classes = useStyles(props)
 
-    return (
-      <Grid className={`${classData.homePage} ${classes.homePageOptionsBannerGrid}`}>
-        <Grid container justify="space-between">
-          {data.map((x, y) => {
-            return (
-              <Grid
-                container
-                item
-                xs={12}
-                sm={12}
-                md={4}
-                justify="center"
-                key={y}
-                className={classes.homePageOptionsGrid}>
-              <Paper className={classes.homePageOptionButtons}>{x.actiontext}</Paper>
-              </Grid>
-            )
-          })}
-        </Grid>
+  return (
+    <Grid className={`${classData.homePage} ${classes.homePageOptionsBannerGrid}`}>
+      <Grid container justify="space-between">
+        {data.map((x, y) => {
+          return (
+            <Grid
+              container
+              item
+              xs={12}
+              sm={12}
+              md={4}
+              justify="center"
+              key={y}
+              className={classes.homePageOptionsGrid}>
+            <Paper className={classes.homePageOptionButtons}>{x.fields.actiontext}</Paper>
+            </Grid>
+          )
+        })}
       </Grid>
-    )
+    </Grid>
+  )
 
 }

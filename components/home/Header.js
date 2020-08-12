@@ -132,9 +132,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default (props) => {
 
-  const { data: {
-    fields: data
-  }, classData } = props
+  const { data: { fields: data }, classData } = props
 
   const classes = useStyles(props)
 

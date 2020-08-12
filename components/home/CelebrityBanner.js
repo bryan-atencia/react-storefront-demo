@@ -1,6 +1,8 @@
 import React from 'react'
-import { makeStyles, Grid, Typography, Hidden } from '@material-ui/core'
+import { Grid, Typography, Hidden } from '@material-ui/core'
 import classnames from 'classnames'
+
+import { makeStyles } from '@material-ui/core/styles'
 
 // import QuickShopTag from '../components/QuickShopTag'
 
@@ -67,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 export default (props) => {
-    const { data, classData } = props
+  const { data, classData } = props
     const classes = useStyles(props)
 
     return <Grid
@@ -99,7 +101,7 @@ export default (props) => {
                         >
                           <Typography align="right" variant="h4">
                             {' '}
-                            {x.header_level_one}{' '}
+                            {x.fields.header_level_one}{' '}
                           </Typography>
                           <Typography
                             align="right"
@@ -107,19 +109,19 @@ export default (props) => {
                             className={classes.homePageCelebrityHeaderLevelTwo}
                           >
                             {' '}
-                            {x.header_level_two}{' '}
+                            {x.fields.header_level_two}{' '}
                           </Typography>
                             <Typography
                               align="right"
                               variant="h4"
                               className={classes.homePageCelebrityHeaderActionText}
                             >
-                              {x.actiontext}
+                              {x.fields.actiontext}
                             </Typography>
                         </Grid>
                         <Grid container item xs={12} justify="center">
                             <img
-                              src={ x.mediaurl }
+                              src={ x.fields.mediaurl }
                               className={ classes.homePageCelebrityRoot }
                             />
                           <Hidden mdUp implementation="css" xsUp={ y === 0 } >
@@ -130,7 +132,7 @@ export default (props) => {
                             >
                               <Typography align="center" variant="h4">
                                 {' '}
-                                {x.header_level_one}{' '}
+                                {x.fields.header_level_one}{' '}
                               </Typography>
                               <Typography
                                 align="center"
@@ -138,14 +140,14 @@ export default (props) => {
                                 className={classes.homePageCelebrityHeaderLevelTwo}
                               >
                                 {' '}
-                                {x.header_level_two}{' '}
+                                {x.fields.header_level_two}{' '}
                               </Typography>
                                 <Typography
                                   align="center"
                                   variant="h4"
                                   className={classes.homePageCelebrityHeaderActionTextAlt}
                                 >
-                                  {x.actiontext}
+                                  {x.fields.actiontext}
                                 </Typography>
                             </Grid>
                           </Hidden>

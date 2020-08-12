@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import classnames from 'classnames'
-import { makeStyles, Grid, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
+
+import { makeStyles } from '@material-ui/core/styles'
 
 import Divider from './Divider'
 import TrendTile from '../misc/TrendTile'
@@ -50,35 +52,35 @@ export default (props) => {
   const { data, classData } = props
   const classes = useStyles(props)
 
-    return <Grid className={classData.homePage}>
-              <Typography
-                component="h2"
-                className={classnames(
-                  classes.trendBannerTitleBold,
-                  classes.homePageTrendingBannerTitleWrapper
-                )}>
-                New <span className={classes.homePageTrendingBannerTitle}>Shirts and Ties</span>
-              </Typography>
-              <Typography className={classes.homePageTrendingBannerSubtitle} variant="h5">
-                A round-up of strong trends and notable new arrivals
-              </Typography>
-                <Divider margin="25" />
-                <Grid container justify="space-between" className={ classes.tilesGrid }>
-                  {data.map((x, y) => {
-                    return (
-                      <Link href="/ties">
-                        <Grid
-                          key={y}
-                          container
-                          item
-                          xs={12}
-                          sm={4}
-                          className={classes.homePageTrendBannerTiles}>
-                            <TrendTile data={x} />
-                        </Grid>
-                      </Link>
-                    )
-                  })}
-                </Grid>
-            </Grid>
+  return <Grid className={classData.homePage}>
+            <Typography
+              component="h2"
+              className={classnames(
+                classes.trendBannerTitleBold,
+                classes.homePageTrendingBannerTitleWrapper
+              )}>
+              New <span className={classes.homePageTrendingBannerTitle}>Shirts and Ties</span>
+            </Typography>
+            <Typography className={classes.homePageTrendingBannerSubtitle} variant="h5">
+              A round-up of strong trends and notable new arrivals
+            </Typography>
+              <Divider margin="25" />
+              <Grid container justify="space-between" className={ classes.tilesGrid }>
+                {data.map((x, y) => {
+                  return (
+                    <Link href="/ties">
+                      <Grid
+                        key={y}
+                        container
+                        item
+                        xs={12}
+                        sm={4}
+                        className={classes.homePageTrendBannerTiles}>
+                          <TrendTile data={x.fields} />
+                      </Grid>
+                    </Link>
+                  )
+                })}
+              </Grid>
+          </Grid>
   }

@@ -1,5 +1,7 @@
 import React from 'react'
-import { makeStyles, Grid, Typography, CardMedia } from '@material-ui/core'
+import { Grid, Typography, CardMedia } from '@material-ui/core'
+
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   homePageVideoBannerRoot: {
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 export default (props) => {
 
-    const { classData, data  } = props
+  const { data: { fields: data }, classData } = props
     const classes = useStyles(props)
 
     return <Grid className={classData.homePage} container>
