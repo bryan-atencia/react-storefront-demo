@@ -8,6 +8,8 @@ import Head from 'next/head'
 import createLazyProps from 'react-storefront/props/createLazyProps'
 import fetchFromAPI from 'react-storefront/props/fetchFromAPI'
 
+import Header from "../components/home/Header.js"
+
 const useStyles = makeStyles(theme => ({
   main: {
     display: 'flex',
@@ -22,29 +24,12 @@ export default function Index(lazyProps) {
   const classes = useStyles()
   const [state] = useLazyState(lazyProps)
 
-  // console.log('props', useContext(NameContext))
+  console.log('props', useLazyState(lazyProps))
+  const { homebanner } = useLazyState(lazyProps)[0]
 
-  return (
-    <>
-      {state.loading ? null : (
-        <Head>
-          <title>{state.pageData.title}</title>
-        </Head>
-      )}
-      <Container maxWidth="lg">
-        {state.loading ? (
-          <LoadMask fullscreen />
-        ) : (
-          <div className={classes.main}>
-            <Typography variant="h3" component="h1" gutterBottom color="primary">
-              {state.pageData.slots.heading}
-            </Typography>
-            <CmsSlot>{state.pageData.slots.description}</CmsSlot>
-          </div>
-        )}
-      </Container>
-    </>
-  )
+  return <div>
+          <Header data={ homebanner } />
+         </div>
 }
 
 Index.getInitialProps = createLazyProps(options => {

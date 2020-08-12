@@ -1,5 +1,6 @@
 // This file was automatically added by xdn deploy.
 // You should commit this file to source control.
+
 const { Router } = require('@xdn/core/router')
 const { nextRoutes } = require('@xdn/next')
 
