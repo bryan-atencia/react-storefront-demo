@@ -10,6 +10,8 @@ import useJssStyles from 'react-storefront/hooks/useJssStyles'
 import SessionProvider from 'react-storefront/session/SessionProvider'
 import useAppStore from 'react-storefront/hooks/useAppStore'
 
+import { CounterContextProvider } from "../context/counter-context.js"
+
 const styles = theme => ({
   main: {
     paddingTop: 3,
@@ -32,9 +34,11 @@ export default function MyApp({ Component, pageProps }) {
             <CssBaseline />
             <Header menu={appData && appData.menu} />
             <NavBar tabs={appData && appData.tabs} />
-            <main className={classes.main}>
-              <Component {...pageProps} />
-            </main>
+            <CounterContextProvider>
+              <main className={classes.main}>
+                <Component {...pageProps} />
+              </main>
+            </CounterContextProvider>
           </NameContext.Provider>
         </MuiThemeProvider>
       </SessionProvider>
