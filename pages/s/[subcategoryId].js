@@ -40,7 +40,7 @@ const Subcategory = lazyProps => {
   const classes = useStyles()
   const theme = useTheme()
   let { pageData, loading } = store
-
+  console.log(pageData, 'the page data in the thing')
   return (
     <>
       <Breadcrumbs items={!loading && pageData.breadcrumbs} />
@@ -53,7 +53,7 @@ const Subcategory = lazyProps => {
               <div className={classes.sideBar}>
                 <Hidden xsDown>
                   {/* Display the filters for desktop screen sizes */}
-                  <Filter classes={{ root: classes.sideBar }} expandAll submitOnChange title="here" clearTextLink="bryan"/>
+                  <Filter classes={{ root: classes.sideBar }} expandAll submitOnChange title="here" />
                 </Hidden>
               </div>
             </Hidden>

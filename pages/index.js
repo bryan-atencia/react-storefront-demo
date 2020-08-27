@@ -17,7 +17,6 @@ import CelebrityBannerHeader from "../components/home/CelebrityBannerHeader"
 import CelebrityBanner from "../components/home/CelebrityBanner"
 
 import { Grid } from '@material-ui/core'
-import { CounterContext } from "../context/counter-context"
 import { HomeContext } from "../context/home-context"
 
 const useStyles = makeStyles(theme => ({
@@ -55,10 +54,7 @@ export default function Index(lazyProps) {
           mediabanners
   } = useLazyState(lazyProps)[0]
 
-  const [ count, setCount ] = useContext(CounterContext)
-  const [ state, dispatch ] = useContext(HomeContext)
-
-  let data = useLazyState(lazyProps)
+  const [ state, dispatch ] = useContext(HomeContext);
 
   useEffect(() => {
     dispatch({
@@ -67,21 +63,10 @@ export default function Index(lazyProps) {
     })
   }, [])
 
-  const increment = () => {
-    setCount( count + 1 )
-  }
-
-  const decrement = () => {
-    setCount( count - 1 )
-  }
-
   return <div>
           <Header data={ homebanner } />
           <Divider margin="50" />
           <Grid className={classes.homePageMainBodyGrid}>
-            <div>{ count }</div>
-            <button onClick={ increment }>increment</button>
-            <button onClick={ decrement }>decrement</button>
             <TrendBanners data={trendbanners}  classData={classes} />
             <Divider margin="50" />
             <VideoBanner data={videobanner} classData={classes} />

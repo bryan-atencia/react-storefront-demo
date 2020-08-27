@@ -11,7 +11,6 @@ import SessionProvider from 'react-storefront/session/SessionProvider'
 import useAppStore from 'react-storefront/hooks/useAppStore'
 
 import { HomeContextProvider } from "../context/home-context.js"
-import { CounterContextProvider } from "../context/counter-context.js"
 
 const styles = theme => ({
   main: {
@@ -34,11 +33,9 @@ export default function MyApp({ Component, pageProps }) {
             <Header menu={appData && appData.menu} />
             <NavBar tabs={appData && appData.tabs} />
             <HomeContextProvider>
-              <CounterContextProvider>
                 <main className={classes.main}>
                   <Component {...pageProps} />
                 </main>
-              </CounterContextProvider>
             </HomeContextProvider>
         </MuiThemeProvider>
       </SessionProvider>

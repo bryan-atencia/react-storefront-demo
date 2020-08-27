@@ -35,14 +35,6 @@ export default (props) => {
 
         let { celebritybanners } = state
 
-        let celebtext = () => {
-          if( celebritybanners && celebritybanners.length ) {
-            return celebritybanners[0].fields.actiontext
-          }
-          return 'none'
-        }
-
-        console.log(celebtext())
         return <>
                   <Grid  style={{ width: "100%"}}>
                         <img
@@ -59,7 +51,6 @@ export default (props) => {
                                                                   label={x.actionSku}
                                                                   />) */}
                   </Grid>
-                     { celebtext && celebtext !== '' && <Typography align="center" variant="h5" className={`${classes.bannersDescription} bannerDescription`} >{ celebtext() }</Typography> }
                      {data.headerLevelOne && data.headerLevelOne !== '' && (
                        <Typography align="center" variant="h5" className={`${classes.bannersDescription} bannerDescription`} >{data.headerLevelOne}</Typography>
                      )}

@@ -8,8 +8,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import Divider from './Divider'
 import TrendTile from '../misc/TrendTile'
 
-import { CounterContext } from "../../context/counter-context"
-
 const useStyles = makeStyles((theme) => ({
   homePageTrendBannerTiles: {
     maxWidth: '32%',
@@ -54,8 +52,6 @@ export default (props) => {
   const { data, classData } = props
   const classes = useStyles(props)
 
-  const [count] = useContext(CounterContext)
-
   return <Grid className={classData.homePage}>
             <Typography
               component="h2"
@@ -63,7 +59,7 @@ export default (props) => {
                 classes.trendBannerTitleBold,
                 classes.homePageTrendingBannerTitleWrapper
               )}>
-              New <span className={classes.homePageTrendingBannerTitle}>Shirts and Ties { count }</span>
+              New <span className={classes.homePageTrendingBannerTitle}>Shirts and Ties</span>
             </Typography>
             <Typography className={classes.homePageTrendingBannerSubtitle} variant="h5">
               A round-up of strong trends and notable new arrivals

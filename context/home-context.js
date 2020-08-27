@@ -17,7 +17,7 @@ export const HomeContextProvider = (props) => {
 
   return (
     <HomeContext.Provider value={[state, dispatch]}>
-      {props.children}
+      { props.children }
     </HomeContext.Provider>
   );
 };
