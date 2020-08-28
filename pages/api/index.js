@@ -3,23 +3,6 @@ import { home } from 'react-storefront-connector'
 
 export default async function(req, res) {
 
-  // let key = "9166e015ff82057cef020e1f067477aa"
-  // let password = "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"
-  // let sharedSecret = "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"
-  // let endpoint = "tiebar-demostore.myshopify.com/admin/api/2020-07"
-
-  // const Shopify = require('shopify-api-node');
-  //
-  // const shopify = new Shopify({
-  //   shopName: 'tiebar-demostore.myshopify.com',
-  //   apiKey: '9166e015ff82057cef020e1f067477aa',
-  //   password: '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'
-  // });
-
-  // let fetchProductData = await fetch(`https://${key}:${password}@${endpoint}/products.json`)
-  // let productData = await fetchProductData.json()
-  // let mainData = productData.products;
-
   const contentful = require('contentful')
   const client = contentful.createClient({
     space: '8x9h02x0glox',

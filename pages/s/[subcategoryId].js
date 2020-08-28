@@ -46,7 +46,7 @@ const Subcategory = lazyProps => {
       <Breadcrumbs items={!loading && pageData.breadcrumbs} />
       <SearchResultsProvider store={store} updateStore={updateStore}>
         <Container maxWidth="lg" style={{ paddingTop: theme.spacing(2) }}>
-          <Head>{loading ? null : <title>{pageData.title}</title>}</Head>
+        { /* <Head>{loading ? null : <title>{pageData.title}</title>}</Head> */}
           <BackToTop />
           <Hbox align="flex-start">
             <Hidden implementation="css" xsDown>
@@ -96,7 +96,7 @@ const Subcategory = lazyProps => {
                 )}
               </Grid>
               <Grid item xs={12}>
-                {!loading ? (
+              { /*  {!loading ? (
                   <ResponsiveTiles autoScrollToNewTiles>
                     {pageData.products.map((product, i) => (
                       <ProductItem key={product.id} product={product} index={i} />
@@ -133,7 +133,7 @@ const Subcategory = lazyProps => {
                       return tiles
                     })()}
                   </ResponsiveTiles>
-                )}
+                )} */ }
               </Grid>
               <Grid item xs={12}>
                 {!loading && <ShowMore variant="button" style={{ paddingBottom: 200 }} />}

@@ -69,8 +69,7 @@ export default (props) => {
                 {data.map((x, y) => {
                   return (
                     <Link href="/ties">
-                      <Grid
-                        key={y}
+                      <Grid key={y}
                         container
                         item
                         xs={12}
